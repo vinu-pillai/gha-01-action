@@ -1,0 +1,17 @@
+name: First Workflow
+on: push
+
+#on: [push, fork] - multiple
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Welcome First
+          run: echo "This is first GHA job"
+
+        - name: List files
+          run: ls
+
+        - name: Read the ReadME
+          run: cat README.md
