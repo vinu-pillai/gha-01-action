@@ -18,3 +18,6 @@ jobs:
 
         - name: Read the ReadME
           run: cat README.md
+
+        - name: Generate ASCII Artwork
+          run: cowsay -f dragon "Run for cover, here comes the DRAAGON... RAWWRRR" >> dragon.txt
