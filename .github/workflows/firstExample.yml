@@ -10,14 +10,17 @@ jobs:
         - name: Welcome First
           run: echo "This is first GHA job"
 
-        - name: List files
-          run: ls -l /
-
         - name: Checkout repository
           uses: actions/checkout@v4         
 
-        - name: Read the ReadME
-          run: cat README.md
+        - name: Install cowsay
+          run: sudo apt-get install cowsay -y          
 
         - name: Generate ASCII Artwork
           run: cowsay -f dragon "Run for cover, here comes the DRAAGON... RAWWRRR" >> dragon.txt
+
+        - name: List files
+          run: ls -l /          
+
+        - name: Read ASCII file
+          run: cat dragon.txt
