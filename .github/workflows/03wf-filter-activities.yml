@@ -1,0 +1,38 @@
+name: Workflow Filters and Activities
+
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+            - '!feature'
+    pull_request:
+        types:
+            - opened
+            - closed
+        paths-ignore:
+            - README.md
+        branches:
+            - main
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Welcome First
+          run: echo "This is first GHA job"
+
+        - name: Checkout repository
+          uses: actions/checkout@v4         
+
+        - name: Install cowsay
+          run: sudo apt-get install cowsay -y          
+
+        - name: Generate ASCII Artwork
+          run: cowsay -f dragon "Run for cover, here comes the DRAAGON... RAWWRRR" >> dragon.txt
+
+        - name: List files
+          run: ls -l /          
+
+        - name: Read ASCII file
+          run: cat dragon.txt  
